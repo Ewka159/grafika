@@ -9,8 +9,20 @@ public class App {
     String version = "0.02";
 
     public static void main(String[] args) {
+        int x, y;
+        String sciezka;
+        System.out.println(args.length);
+        if (args.length < 3) {
+            System.out.println("Za mało argumentów");
+            return;
 
-        Renderer mainRenderer = new Renderer(System.getProperty("user.home")+"/render.png");
+        }
+        x = Integer.valueOf(args[1]);
+        y = Integer.valueOf(args[2]);
+        sciezka = args[0];
+
+
+        Renderer mainRenderer = new Renderer(sciezka, x, y);
         mainRenderer.clear();
         mainRenderer.drawPoint(100, 100);
         try {
@@ -21,6 +33,6 @@ public class App {
     }
 
     public String getVersion() {
-	return this.version;
+        return this.version;
     }
 }
