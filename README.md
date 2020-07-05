@@ -12,7 +12,7 @@
     - [X] Zad 5
 - [ ] [Laboratorium 03](LAB03.md): Wypełnianie trójkątów
     - [X] Zad 1
-    - [ ] Zad 2
-    - [ ] Zad 3
-    - [ ] Zad 4
-    - [ ] Zad 5
+    - [X] Zad 2
+    - [X] Zad 3
+    - [X] Zad 4
+    - [X] Zad 5
