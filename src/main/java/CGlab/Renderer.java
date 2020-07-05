@@ -19,10 +19,12 @@ public class Renderer {
     private LineAlgo lineAlgo = LineAlgo.NAIVE;
 
     public Renderer(String filename, int width, int height) {
-        w = width;
-        h = height;
 
+
+        h = height;
+        w = width;
         render = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
         this.filename = filename;
     }
 
@@ -39,7 +41,21 @@ public class Renderer {
     }
 
     public void drawLineNaive(int x0, int y0, int x1, int y1) {
-        // TODO: zaimplementuj
+int rX=Math.max(x0, x1)-Math.min(x0, x1);
+int rY=Math.max(y0, y1)-Math.min(y0, y1);
+  double mianownik=x0+x1;
+  double licznik = y0+y1;
+  double dz=licznik/mianownik;
+
+  if (x0 > x1) {
+      int t = x0;
+      x0 = x1;
+      x1 = t;
+  }
+  for(int i=0; i<rX; i++)
+  {
+      drawPoint(x0+i, (int) Math.round(dz*(x0 + i)));
+  }
     }
 
     public void drawLineDDA(int x0, int y0, int x1, int y1) {

@@ -6,7 +6,7 @@
 - [x] Laboratorium 01 - zrealizowane na zajęciach 
 - [ ] [Laboratorium 02](LAB02.md): Algorytmy rasteryzacji linii
     - [X] Zad 1
-    - [ ] Zad 2
+    - [X] Zad 2
     - [ ] Zad 3
     - [ ] Zad 4
     - [ ] Zad 5

@@ -24,7 +24,7 @@ public class App {
 
         Renderer mainRenderer = new Renderer(sciezka, x, y);
         mainRenderer.clear();
-        mainRenderer.drawPoint(100, 100);
+       mainRenderer.drawLine(0,0,200,200,Renderer.LineAlgo.NAIVE);
         try {
             mainRenderer.save();
         } catch (IOException ex) {
@@ -34,5 +34,5 @@ public class App {
 
     public String getVersion() {
         return this.version;
-    }
+    }s
 }
