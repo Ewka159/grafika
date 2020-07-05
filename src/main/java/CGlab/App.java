@@ -40,7 +40,7 @@ if(args[3].equalsIgnoreCase("LINE_NAIVE"))
         Renderer.Vec2f A=mainRenderer.new Vec2f(200,50);
         Renderer.Vec2f B=mainRenderer.new Vec2f(120,50);
         Renderer.Vec2f C=mainRenderer.new Vec2f(75,150);
-        Renderer.Vec3i Color=mainRenderer.new Vec3i(255,0,0);
+        Renderer.Vec3i Color=mainRenderer.new Vec3i(255,70,70);
 
         mainRenderer.drawTriangle(A,B,C,Color);
 
