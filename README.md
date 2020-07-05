@@ -8,7 +8,7 @@
     - [X] Zad 1
     - [X] Zad 2
     - [X] Zad 3
-    - [ ] Zad 4
+    - [X] Zad 4
     - [ ] Zad 5
 - [ ] [Laboratorium 03](LAB03.md): Wypełnianie trójkątów
     - [ ] Zad 1
