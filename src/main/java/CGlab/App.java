@@ -12,19 +12,21 @@ public class App {
         int x, y;
         String sciezka;
         System.out.println(args.length);
-        if (args.length < 3) {
+        if (args.length < 4) {
             System.out.println("Za mało argumentów");
             return;
 
         }
-        x = Integer.valueOf(args[1]);
-        y = Integer.valueOf(args[2]);
+        x = Integer.parseInt(args[1]);
+        y = Integer.parseInt(args[2]);
         sciezka = args[0];
-
+Renderer.LineAlgo line=null;
+if(args[3].equalsIgnoreCase("LINE_NAIVE"))
+    line=Renderer.LineAlgo.NAIVE;
 
         Renderer mainRenderer = new Renderer(sciezka, x, y);
         mainRenderer.clear();
-       mainRenderer.drawLine(0,0,200,200,Renderer.LineAlgo.NAIVE);
+       mainRenderer.drawLine(100,100,200,200,line);
         try {
             mainRenderer.save();
         } catch (IOException ex) {
@@ -34,5 +36,5 @@ public class App {
 
     public String getVersion() {
         return this.version;
-    }s
+    }
 }
