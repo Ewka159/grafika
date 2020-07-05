@@ -19,7 +19,8 @@ public class App {
         }
         x = Integer.parseInt(args[1]);
         y = Integer.parseInt(args[2]);
-        sciezka = args[0];
+      //  sciezka = args[0];
+        sciezka="D:\\github\\CGlab\\img\\render.jpg";
 Renderer.LineAlgo line=null;
 if(args[3].equalsIgnoreCase("LINE_NAIVE"))
     line=Renderer.LineAlgo.NAIVE;
@@ -36,7 +37,11 @@ if(args[3].equalsIgnoreCase("LINE_NAIVE"))
         mainRenderer.drawLine(200,200,0,400,Renderer.LineAlgo.BRESENHAM_INT);
         mainRenderer.drawLine(200,200,200,0,Renderer.LineAlgo.BRESENHAM_INT);
 
+        Renderer.Vec2f A=mainRenderer.new Vec2f(200,50);
+        Renderer.Vec2f B=mainRenderer.new Vec2f(120,50);
+        Renderer.Vec2f C=mainRenderer.new Vec2f(75,150);
 
+        mainRenderer.drawTriangle(A,B,C);
 
         try {
             mainRenderer.save();
@@ -47,5 +52,6 @@ if(args[3].equalsIgnoreCase("LINE_NAIVE"))
 
     public String getVersion() {
         return this.version;
+
     }
 }

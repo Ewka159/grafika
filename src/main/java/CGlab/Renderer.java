@@ -120,6 +120,7 @@ public class Renderer {
         }
     }
 
+
     public static BufferedImage verticalFlip(BufferedImage img) {
         int w = img.getWidth();
         int h = img.getHeight();
@@ -133,17 +134,21 @@ public class Renderer {
     public Vec3f barycentric(Vec2f A, Vec2f B, Vec2f C, Vec2f P) {
 
         Vec3f v1 = new Vec3f((B.x - A.x), (C.x - A.x), (A.x - P.x));
-
+        // tutaj potrzebujemy wektora składającego się ze współrzędnych
+        // x wektorów AB, AC ora PA.
 
         Vec3f v2 = new Vec3f((B.y - A.y), (C.y - A.y), (A.y - P.y));
-
+        // tutaj potrzebujemy wektora składającego się ze współrzędnych
+        // y wektorów AB, AC ora PA.
 
         Vec3f cross = vectorMultiply(v1, v2);
-
+        // iloczyn wektorowy v1 i v2. Wskazówka: zaimplementuj do tego oddzielną metodę
+//        System.out.println(v1.toString()+"\n"+v2.toString()+"\n"+cross.toString());
         Vec2f uv = new Vec2f((cross.x / cross.z), (cross.y / cross.z));
-
+        // wektor postaci: cross.x / cross.z, cross.y / cross.z
+//        System.out.println("x: "+uv.x+" y: "+uv.y);
         Vec3f barycentric = new Vec3f(uv.x, uv.y, (1 - uv.x - uv.y));
-        // współrzędne barycentryczne
+        // współrzędne barycentryczne, uv.x, uv.y, 1- uv.x - uv.y
 
         return barycentric;
     }
@@ -153,9 +158,23 @@ public class Renderer {
     }
 
     public void drawTriangle(Vec2f A, Vec2f B, Vec2f C) {
+        // dla każdego punktu obrazu this.render:
+        //      oblicz współrzędne baryc.
+        //      jeśli punkt leży wewnątrz, zamaluj (patrz wykład)
+
+        for (int x = 0; x < this.render.getWidth(); x++)
+            for (int y = 0; y < this.render.getHeight(); y++) {
+                Vec2f P = new Vec2f(x, y);
+                Vec3f bary = barycentric(A, B, C, P);
+
+                int red = 255 | (255 << 8) | (0 << 16) | (0 << 24);
+
+                if ((bary.x >= 0) && (bary.y >= 0) && (bary.z >= 0))
+                    render.setRGB(x, y, red);
+            }
     }
 
-
+    //Wektory do obliczeń barycentrycznych
     public class Vec3i {
         public int x;
         public int y;
