@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
+import static java.lang.Integer.signum;
 public class Renderer {
 
     public enum LineAlgo {NAIVE, DDA, BRESENHAM, BRESENHAM_INT;}
@@ -66,21 +66,20 @@ int rY=Math.max(y0, y1)-Math.min(y0, y1);
     int white = 255 | (255 << 8) | (255 << 16) | (255 << 24);
     int dx = x1-x0;
     int dy = y1-y0;
-    float dree=Math.abs(dy/(float)(dx));
-    float erre =0;
+int E=2*dy-dx;
     int y=y0;
     for(int x=x0;x<x1;x++)
     {
         render.setRGB(x,y,white);
-        erre += dree;
-        if(erre >0.5)
-        {
-            y += (y1 > y0 ? 1 : -1);
-            erre -=1.;
 
+        if(E >0)
+        {
+            y++;
+            E=E-2*dx;
         }
+        E=E+2*dy;
     }
-    }
+    }//oktaty: osiem
 
     public void drawLineBresenhamInt(int x0, int y0, int x1, int y1) {
         // TODO: zaimplementuj
