@@ -109,4 +109,44 @@ int E=2*dy-dx;
         g.dispose();
         return flippedImage;
     }
+    public class Vec3i {
+        public int x;
+        public int y;
+        public int z;
+
+        @Override
+        public String toString() {
+            return x + " " + y + " " + z;
+        }
+    }
+
+    public class Vec3f {
+        public float x;
+        public float y;
+        public float z;
+        @Override
+        public String toString() {
+            return x + " " + y + " " + z;
+        }
+    }
+
+    public class Vec2f {
+        public float x;
+        public float y;
+        @Override
+        public String toString() {
+            return x + " " + y;
+        }
+    }
+
+    public class Vec2i {
+        public int x;
+        public int y;
+        @Override
+        public String toString() {
+            return x + " " + y;
+        }
+    }
+
+
 }
